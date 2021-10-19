@@ -1,0 +1,59 @@
+***** main.js *****
+
+$("#fundoGame").append("<div id='placar'></div>");
+
+
+***** style.css *****
+
+#placar {
+	width: 450px;
+	height: 50px;
+	position: absolute;
+	left: 5px;
+	top: 590px;
+}
+
+h2 {
+	font-family:Titulo;
+	font-size:20px;
+	color:#FFF
+}
+
+
+***** main.js *****
+
+var pontos=0;
+var salvos=0;
+var perdidos=0;
+
+
+***** main.js *****
+
+pontos=pontos+100;
+
+***** main.js *****
+
+pontos=pontos+50;
+
+***** main.js *****
+
+salvos++;
+
+***** main.js *****
+
+perdidos++;
+
+***** main.js *****
+
+placar();
+
+***** main.js *****
+
+
+function placar() {
+	
+	$("#placar").html("<h2> Pontos: " + pontos + " Salvos: " + salvos + " Perdidos: " + perdidos + "</h2>");
+	
+} //fim da função placar()
+
+

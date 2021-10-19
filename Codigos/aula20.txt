@@ -1,0 +1,57 @@
+***** main.js *****
+
+$("#fundoGame").append("<div id='energia'></div>");
+
+
+
+***** style.css *****
+
+#energia {
+	width: 140px;
+	height: 38px;
+	position: absolute;
+	left: 750px;
+	top: 7px;	
+}
+
+***** main.js *****
+
+var energiaAtual=3;
+
+***** main.js *****
+
+energiaAtual--;
+
+***** main.js *****
+
+energia();
+
+***** main.js *****
+
+//Barra de energia
+
+function energia() {
+	
+		if (energiaAtual==3) {
+			
+			$("#energia").css("background-image", "url(img/energia3.png)");
+		}
+	
+		if (energiaAtual==2) {
+			
+			$("#energia").css("background-image", "url(img/energia2.png)");
+		}
+	
+		if (energiaAtual==1) {
+			
+			$("#energia").css("background-image", "url(img/energia1.png)");
+		}
+	
+		if (energiaAtual==0) {
+			
+			$("#energia").css("background-image", "url(img/energia0.png)");
+			
+			//Game Over
+		}
+	
+	} // Fim da função energia()
