@@ -7,6 +7,7 @@ function start() { // Inicio da função start()
   $("#fundoGame").append("<div id='inimigo2'></div>");
   $("#fundoGame").append("<div id='amigo' class='anima3'></div>");
   $("#fundoGame").append("<div id='placar'></div>");
+  $("#fundoGame").append("<div id='energia'></div>");
 
   //Principais variáveis do jogo
 
@@ -15,6 +16,7 @@ function start() { // Inicio da função start()
   var pontos = 0;
   var salvos = 0;
   var perdidos = 0;
+  var energiaAtual = 3;
   var jogo = {}
   var velocidade = 5;
   var posicaoY = parseInt(Math.random() * 334);
@@ -50,6 +52,7 @@ function start() { // Inicio da função start()
     moveamigo();
     colisao();
     placar();
+    energia();
 
   } // Fim da função loop()
 
@@ -177,7 +180,7 @@ function start() { // Inicio da função start()
     // jogador com o inimigo1
 
     if (colisao1.length > 0) {
-
+      energiaAtual--;
       inimigo1X = parseInt($("#inimigo1").css("left"));
       inimigo1Y = parseInt($("#inimigo1").css("top"));
       explosao1(inimigo1X, inimigo1Y);
@@ -189,7 +192,7 @@ function start() { // Inicio da função start()
 
     // jogador com o inimigo2 
     if (colisao2.length > 0) {
-
+      energiaAtual--;
       inimigo2X = parseInt($("#inimigo2").css("left"));
       inimigo2Y = parseInt($("#inimigo2").css("top"));
       explosao2(inimigo2X, inimigo2Y);
@@ -358,6 +361,35 @@ function start() { // Inicio da função start()
     $("#placar").html("<h2> Pontos: " + pontos + " Salvos: " + salvos + " Perdidos: " + perdidos + "</h2>");
 
   } //fim da função placar()
+
+  //Barra de energia
+
+  function energia() {
+
+    if (energiaAtual == 3) {
+
+      $("#energia").css("background-image", "url(img/energia3.png)");
+    }
+
+    if (energiaAtual == 2) {
+
+      $("#energia").css("background-image", "url(img/energia2.png)");
+    }
+
+    if (energiaAtual == 1) {
+
+      $("#energia").css("background-image", "url(img/energia1.png)");
+    }
+
+    if (energiaAtual == 0) {
+
+      $("#energia").css("background-image", "url(img/energia0.png)");
+
+      //Game Over
+      //PS: Quando o jogo é executado em modo offline, é comum que, em algumas execuções, a imagem de fundo da div 'energia' oscile (pisque).
+    }
+
+  } // Fim da função energia()
 
 
 } // Fim da função start
